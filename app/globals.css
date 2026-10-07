@@ -1,26 +1,209 @@
 @import "tailwindcss";
 
+@theme static {
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --color-primary-periwinkle: #f5f5fa;
+  --color-primary-indigo: #533afd;
+  --color-primary-violet: #4032c9;
+  --color-primary-deep-violet: #182659;
+
+  --color-gray-off-white: #fafbfc;
+  --color-gray-mist: #f2f6fa;
+  --color-gray-frost: #e5edf5;
+  --color-gray-smoke: #839bc8;
+  --color-gray-slate: #64748d;
+  --color-gray-midnight: #061b31;
+
+  --spacing-1px: 1px;
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-s: 16px;
+  --spacing-md: 24px;
+  --spacing-l: 32px;
+  --spacing-xl: 48px;
+  --spacing-xxl: 64px;
+  --spacing-xxxl: 96px;
+
+  --container-xs: 320px;
+  --container-sm: 384px;
+  --container-md: 448px;
+  --container-lg: 512px;
+  --container-xl: 576px;
+  --container-2xl: 672px;
+  --container-3xl: 768px;
+  --container-4xl: 896px;
+  --container-5xl: 1024px;
+  --container-6xl: 1152px;
+  --container-7xl: 1280px;
+
+  --breakpoint-xs: 380px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1563px;
+
+  /* max-w reads spacing before container, so these lock the theme widths */
+  --max-width-xs: var(--breakpoint-xs);
+  --min-width-xs: var(--container-xs);
+  --max-width-sm: var(--container-sm);
+  --min-width-md: var(--container-md);
+  --max-width-md: var(--container-md);
+  --max-width-lg: var(--container-lg);
+  --min-width-xl: var(--container-xl);
+  --max-width-xl: var(--container-xl);
+  --max-width-2xl: var(--container-2xl);
+  --max-width-3xl: var(--container-3xl);
+  --max-width-4xl: var(--container-4xl);
+  --max-width-5xl: var(--container-5xl);
+  --max-width-6xl: var(--container-6xl);
+  --max-width-7xl: var(--container-7xl);
+  --max-width-8xl: 1563px;
+
+  --text-caption: 12px;
+  --text-caption--line-height: 17.4px;
+  --text-caption--letter-spacing: -0.12px;
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 19.6px;
+  --text-body-sm--letter-spacing: -0.14px;
+  --text-body: 16px;
+  --text-body--line-height: 26px;
+  --text-body--letter-spacing: -0.16px;
+  --text-body-lg: 20px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--letter-spacing: -0.2px;
+  --text-subheading: 22px;
+  --text-subheading--line-height: 24.2px;
+  --text-subheading--letter-spacing: -0.22px;
+  --text-heading-sm: 26px;
+  --text-heading-sm--line-height: 29.12px;
+  --text-heading-sm--letter-spacing: -0.26px;
+  --text-heading: 32px;
+  --text-heading--line-height: 35.2px;
+  --text-heading--letter-spacing: -0.64px;
+  --text-heading-lg: 48px;
+  --text-heading-lg--line-height: 49.44px;
+  --text-heading-lg--letter-spacing: -0.96px;
+  --text-display: 56px;
+  --text-display--line-height: 57.68px;
+  --text-display--letter-spacing: -1.4px;
+
+  --leading-1px: 1;
+  --leading-caption: 17.4px;
+  --leading-body-sm: 19.6px;
+  --leading-body: 26px;
+  --leading-body-lg: 28px;
+  --leading-subheading: 24.2px;
+  --leading-heading-sm: 29.12px;
+  --leading-heading: 35.2px;
+  --leading-heading-lg: 49.44px;
+  --leading-display: 57.68px;
+
+  --tracking-caption: -0.12px;
+  --tracking-body-sm: -0.14px;
+  --tracking-body: -0.16px;
+  --tracking-body-lg: -0.2px;
+  --tracking-subheading: -0.22px;
+  --tracking-heading-sm: -0.26px;
+  --tracking-heading: -0.64px;
+  --tracking-heading-lg: -0.96px;
+  --tracking-display: -1.4px;
+
+  --font-family-sans: "TWK Lausanne Pan", ui-sans-serif, system-ui, sans-serif;
+  --font-family-serif: "DM Serif Text", ui-serif, Georgia, serif;
+  --font-family-mono: "IBM Plex Sans Condensed", ui-sans-serif, sans-serif;
+
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-medium: 600;
+  --font-weight-semibold: 800;
+  --font-weight-bold: 1000;
+
+  --radius-sm: 4px;
+  --radius-base: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --default-border-width: 1px;
+  --border-width-0: 0px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+
+  --color-red-50: oklch(97.1% 0.013 17.38);
+  --color-red-600: oklch(57.7% 0.245 27.325);
+  --color-yellow-50: oklch(98.7% 0.026 102.212);
+  --color-yellow-600: oklch(68.1% 0.162 75.834);
+  --color-yellow-900: oklch(42.1% 0.095 57.708);
+  --color-green-50: oklch(98.2% 0.018 155.826);
+  --color-green-600: oklch(62.7% 0.194 149.214);
+  --color-green-900: oklch(39.3% 0.095 152.535);
+
+  --font-base: var(--font-family-sans);
+
+  --color-bg-variants-white: var(--color-white);
+  --color-bg-variants-gray: var(--color-gray-mist);
+
+  --color-background-white: var(--color-white);
+  --color-background-black: var(--color-black);
+  --color-background-extra-light: var(--color-gray-off-white);
+  --color-background-light: var(--color-gray-mist);
+  --color-background-brand-soft: var(--color-primary-periwinkle);
+  --color-background-brand: var(--color-primary-indigo);
+  --color-background-brand-hover: var(--color-primary-violet);
+  --color-background-success: var(--color-green-50);
+  --color-background-danger: var(--color-red-50);
+  --color-background-warning: var(--color-yellow-50);
+  --color-background-dark: var(--color-gray-midnight);
+
+  --color-text-white: var(--color-white);
+  --color-text-black: var(--color-black);
+  --color-text-primary: var(--color-gray-midnight);
+  --color-text-secondary: var(--color-gray-slate);
+  --color-text-tertiary: var(--color-gray-smoke);
+  --color-text-brand: var(--color-primary-indigo);
+  --color-text-success: var(--color-green-900);
+  --color-text-danger: var(--color-red-600);
+  --color-text-warning: var(--color-yellow-900);
+
+  --color-stroke-dark: var(--color-gray-midnight);
+  --color-stroke-light: var(--color-gray-frost);
+  --color-stroke-success: var(--color-green-600);
+  --color-stroke-danger: var(--color-red-600);
+  --color-stroke-warning: var(--color-yellow-600);
+  --color-stroke-brand: var(--color-primary-indigo);
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #061b31;
+  --primary: #533afd;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --font-sans: var(--font-lausanne), "TWK Lausanne Pan", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex), "IBM Plex Sans Condensed", ui-sans-serif, sans-serif;
+  --font-serif: "DM Serif Text", ui-serif, Georgia, serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-primary-indigo) 14%, white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
