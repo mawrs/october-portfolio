@@ -203,7 +203,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html,
+  [data-scroller] {
     scroll-behavior: auto;
   }
 }

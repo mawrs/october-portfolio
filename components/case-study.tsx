@@ -2,19 +2,17 @@ import Link from "next/link";
 import { Cover } from "@/components/covers";
 import { ReadingProgress } from "@/components/reading-progress";
 import { SectionNav } from "@/components/section-nav";
-import { projects, type Block, type CoverId, type Project } from "@/lib/content";
+import { type Block, type CoverId, type Project } from "@/lib/content";
 
 export function CaseStudy({ project }: { project: Project }) {
-  const index = projects.findIndex((item) => item.slug === project.slug);
-  const next = projects[(index + 1) % projects.length];
   const sections = project.sections.map(({ id, label }) => ({ id, label }));
   const metaParts = project.meta.split(/\s*[·•]\s*/).filter(Boolean);
 
   return (
     <>
       <ReadingProgress />
-      <div className="relative mx-auto w-full max-w-8xl pt-l">
-        <aside className="px-l py-s lg:absolute lg:top-l lg:left-0">
+      <div className="relative mx-auto w-full max-w-8xl pt-l lg:grid">
+        <aside className="z-10 px-l py-s lg:sticky lg:top-[100px] lg:col-start-1 lg:row-start-1 lg:self-start">
           <Link
             href="/"
             className="inline-flex items-center gap-xxs font-mono text-body-sm font-normal text-text-secondary uppercase hover:text-text-primary"
@@ -27,7 +25,7 @@ export function CaseStudy({ project }: { project: Project }) {
           </div>
         </aside>
 
-        <article className="mx-auto w-full max-w-[777px] px-l">
+        <article className="mx-auto w-full max-w-[777px] px-l lg:col-start-1 lg:row-start-1">
           <header className="flex flex-col items-start gap-md py-s">
             <div className="flex flex-col items-start gap-xs">
               <p className="flex items-center gap-xs text-caption text-text-secondary uppercase">
@@ -77,16 +75,6 @@ export function CaseStudy({ project }: { project: Project }) {
               </section>
             ))}
           </div>
-
-          {next && next.slug !== project.slug && (
-            <Link
-              href={`/projects/${next.slug}`}
-              className="mt-xl flex items-baseline justify-between gap-md border-t border-stroke-light pt-s hover:text-text-brand"
-            >
-              <span className="font-mono text-body-sm text-text-secondary uppercase">Next</span>
-              <span className="text-body text-text-primary">{next.title}</span>
-            </Link>
-          )}
         </article>
       </div>
     </>

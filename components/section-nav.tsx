@@ -50,7 +50,7 @@ export function SectionNav({
           key={item.id}
           href={`#${item.id}`}
           className={`shrink-0 text-body-sm hover:text-text-primary ${
-            active === item.id ? "text-text-primary" : "text-text-secondary"
+            active === item.id ? "text-text-primary" : "text-text-tertiary"
           }`}
         >
           {item.label}
