@@ -39,6 +39,8 @@ export type Project = {
   timeline: string;
   team: string[];
   skills: string[];
+  lead?: string[];
+  facts?: Array<{ label: string; values: string[] }>;
   sections: Section[];
 };
 

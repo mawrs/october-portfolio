@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export function ReadingProgress() {
+export function ReadingProgress({ tone = "brand" }: { tone?: "brand" | "dark" }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export function ReadingProgress() {
       aria-label="Reading progress"
     >
       <div
-        className="h-full bg-primary transition-[width] duration-150 ease-out motion-reduce:transition-none"
+        className={`h-full transition-[width] duration-150 ease-out motion-reduce:transition-none ${tone === "dark" ? "bg-background-dark" : "bg-primary"}`}
         style={{ width: `${progress * 100}%` }}
       />
     </div>
