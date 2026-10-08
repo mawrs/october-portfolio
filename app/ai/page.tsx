@@ -13,10 +13,10 @@ const workflow: Project = {
   title: "How I'm using AI in 2026",
   headline: "How I'm using AI in 2026",
   meta: "",
-  deck: "Over the last few years I've slowly decreased the hours spent in Figma in favor of a more agentic workflow that closes the loop on research, design, and development.",
+  deck: "My workflow has moved off the classic UX sprint. The linear path from research to brief to wireframe to polish is no longer how I work.",
   lead: [
-    "My workflow revolves heavily around Cursor's IDE to make pixel-perfect design changes and Vercel for prototype testing.",
-    "This workflow still works for me as of August 2026, but things change. Check out my process below, and the tools I use at each step.",
+    "The cost to build has dropped so far that I can take much more creative risk with the process. I jump straight to high fidelity. I generate a podcast instead of writing a brief.",
+    "The classic UX process is becoming a luxury, the route you take when you want the craftsmanship of design. Closer to an artisan jeweler working by hand than a factory turning the piece out.",
   ],
   cover: "peridot",
   ratio: "wide",

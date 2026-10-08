@@ -1,3 +1,4 @@
+import { AboutVideo } from "@/components/about-video";
 import { ProjectCard } from "@/components/project-card";
 import { experience, getProject, profile } from "@/lib/content";
 
@@ -55,6 +56,7 @@ export default function HomePage() {
           );
         })}
       </div>
+      <AboutVideo />
     </div>
   );
 }

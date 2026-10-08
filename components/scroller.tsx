@@ -8,9 +8,17 @@ export function Scroller({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  }, []);
+
+  useLayoutEffect(() => {
     if (window.location.hash) return;
     const scroller = ref.current;
-    if (scroller) scroller.scrollTop = 0;
+    if (!scroller) return;
+    const behavior = scroller.style.scrollBehavior;
+    scroller.style.scrollBehavior = "auto";
+    scroller.scrollTop = 0;
+    scroller.style.scrollBehavior = behavior;
   }, [pathname]);
 
   return (
