@@ -18,6 +18,8 @@ export function ProjectCard({
   category,
   cover,
   ratio = "square",
+  centered = false,
+  className = "",
 }: {
   href: string;
   title: string;
@@ -26,14 +28,20 @@ export function ProjectCard({
   category?: string;
   cover: CoverId;
   ratio?: keyof typeof ratios;
+  centered?: boolean;
+  className?: string;
 }) {
   return (
-    <Link href={href} className="group flex flex-col gap-xs">
+    <Link href={href} className={`group flex flex-col gap-xs ${className}`}>
       <div
-        className={`overflow-hidden rounded-sm border-2 border-stroke-light bg-background-extra-light ${ratios[ratio]}`}
+        className={`overflow-hidden rounded-sm border-2 border-stroke-light bg-background-light ${centered ? "flex aspect-[16/9] items-center justify-center" : ratios[ratio]}`}
       >
-        <div className="h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.015] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
-          <Cover id={cover} />
+        <div
+          className={`transition-transform duration-500 ease-out group-hover:scale-[1.015] motion-reduce:transition-none motion-reduce:group-hover:scale-100 ${centered ? "flex h-[74%] w-[36%] items-center justify-center overflow-hidden rounded-sm border border-stroke-light bg-background-white p-xs" : "h-full w-full"}`}
+        >
+          <div className={centered ? "h-full w-full overflow-hidden" : "contents"}>
+            <Cover id={cover} />
+          </div>
         </div>
       </div>
       <div className="flex items-center justify-between gap-s">

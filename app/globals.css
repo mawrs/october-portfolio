@@ -89,6 +89,9 @@
   --text-display: 56px;
   --text-display--line-height: 57.68px;
   --text-display--letter-spacing: -1.4px;
+  --text-display-lg: 72px;
+  --text-display-lg--line-height: 74.16px;
+  --text-display-lg--letter-spacing: -1.8px;
 
   --leading-1px: 1;
   --leading-caption: 17.4px;
@@ -100,6 +103,7 @@
   --leading-heading: 35.2px;
   --leading-heading-lg: 49.44px;
   --leading-display: 57.68px;
+  --leading-display-lg: 74.16px;
 
   --tracking-caption: -0.12px;
   --tracking-body-sm: -0.14px;
@@ -110,6 +114,7 @@
   --tracking-heading: -0.64px;
   --tracking-heading-lg: -0.96px;
   --tracking-display: -1.4px;
+  --tracking-display-lg: -1.8px;
 
   --font-family-sans: "TWK Lausanne Pan", ui-sans-serif, system-ui, sans-serif;
   --font-family-serif: "DM Serif Text", ui-serif, Georgia, serif;

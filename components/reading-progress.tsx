@@ -4,17 +4,14 @@ import { useEffect, useState } from "react";
 
 export function ReadingProgress() {
   const [progress, setProgress] = useState(0);
-  const [track, setTrack] = useState({ left: 0, width: 0 });
 
   useEffect(() => {
     const scroller = document.querySelector("[data-scroller]");
     if (!scroller) return;
 
     const update = () => {
-      const rect = scroller.getBoundingClientRect();
       const max = scroller.scrollHeight - scroller.clientHeight;
       const next = max <= 0 ? 0 : Math.min(1, scroller.scrollTop / max);
-      setTrack({ left: rect.left, width: rect.width });
       setProgress(next);
     };
 
@@ -33,8 +30,7 @@ export function ReadingProgress() {
 
   return (
     <div
-      className="pointer-events-none fixed top-16 z-50 h-[3px] bg-foreground/10"
-      style={{ left: track.left, width: track.width || "100%" }}
+      className="sticky top-0 z-30 h-[5px] w-full bg-foreground/10"
       role="progressbar"
       aria-valuemin={0}
       aria-valuemax={100}

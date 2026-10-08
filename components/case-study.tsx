@@ -10,9 +10,19 @@ export function CaseStudy({ project }: { project: Project }) {
 
   return (
     <>
+      <div
+        data-case-hero
+        className="flex aspect-[16/9] max-h-[70vh] w-full items-center justify-center bg-background-light"
+      >
+        <div className="flex aspect-[0.865] h-[74%] max-w-[90%] shrink-0 items-center justify-center overflow-hidden rounded-sm border border-stroke-light bg-background-white p-xs">
+          <div className="h-full w-full overflow-hidden">
+            <Cover id={project.cover} />
+          </div>
+        </div>
+      </div>
       <ReadingProgress />
       <div className="relative mx-auto w-full max-w-8xl pt-l lg:grid">
-        <aside className="z-10 px-l py-s lg:sticky lg:top-[100px] lg:col-start-1 lg:row-start-1 lg:self-start">
+        <aside className="z-10 px-l py-s lg:sticky lg:top-s lg:col-start-1 lg:row-start-1 lg:self-start">
           <Link
             href="/"
             className="inline-flex items-center gap-xxs font-mono text-body-sm font-normal text-text-secondary uppercase hover:text-text-primary"
@@ -45,17 +55,12 @@ export function CaseStudy({ project }: { project: Project }) {
             <p className="text-body text-text-secondary">{project.deck}</p>
           </header>
 
-          <div className="flex flex-col gap-s pt-s">
-            <div className="h-[352px] overflow-hidden rounded-sm border-2 border-stroke-light bg-background-extra-light">
-              <Cover id={project.cover} />
-            </div>
-            <dl className="grid grid-cols-2 gap-s sm:grid-cols-4">
-              <Meta label="Role" values={[project.role]} />
-              <Meta label="Timeline" values={[project.timeline]} />
-              <Meta label="Team" values={project.team} />
-              <Meta label="Skills" values={project.skills} />
-            </dl>
-          </div>
+          <dl className="grid grid-cols-2 gap-s pt-s sm:grid-cols-4">
+            <Meta label="Role" values={[project.role]} />
+            <Meta label="Timeline" values={[project.timeline]} />
+            <Meta label="Team" values={project.team} />
+            <Meta label="Skills" values={project.skills} />
+          </dl>
 
           <div className="pt-md lg:hidden">
             <SectionNav items={sections} orientation="horizontal" />
@@ -63,7 +68,7 @@ export function CaseStudy({ project }: { project: Project }) {
 
           <div className="mt-md flex flex-col gap-xl">
             {project.sections.map((section) => (
-              <section key={section.id} id={section.id} className="scroll-mt-24">
+              <section key={section.id} id={section.id} className="scroll-mt-l">
                 <h2 className="font-mono text-heading-sm font-medium text-text-primary uppercase">
                   {section.label}
                 </h2>

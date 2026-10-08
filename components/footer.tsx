@@ -3,6 +3,7 @@ import { profile } from "@/lib/content";
 const credits = ["Designed in Figma", "Coded in Cursor", "Hosted on Vercel"];
 
 const links = [
+  { href: "/martin-tejeda-resume.pdf", label: "Resume", external: true },
   { href: `mailto:${profile.email}`, label: "Email" },
   { href: profile.linkedin, label: "LinkedIn", external: true },
   { href: profile.x, label: "X", external: true },
