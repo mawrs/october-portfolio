@@ -10,7 +10,7 @@ export const projects: Project[] = [
     cover: "notifications",
     ratio: "wide",
     surfaces: ["work"],
-    role: "Product Designer",
+    role: "Page switch and notification settings",
     timeline: "Apr – Sep 2021",
     team: ["Page admin product"],
     skills: ["Interaction design", "Settings", "Prototyping"],
@@ -29,7 +29,7 @@ export const projects: Project[] = [
           },
           {
             type: "p",
-            text: "I owned the end-to-end interaction design for the Page switch and notification settings: mapping the existing behavior, exploring the control model, prototyping the selected direction, and documenting states for engineering. I partnered with the Pages PM, content design, and engineering; the team set product scope and technical constraints, while I made the interaction and its states concrete.",
+            text: "I owned the Page switch and notification settings from existing-flow mapping through prototypes and engineering handoff. The Pages PM, content design, and engineering set scope and technical constraints; I designed the interaction and its states.",
           },
           {
             type: "ul",
@@ -48,11 +48,11 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "h3",
-            text: "The pile did not match the work",
+            text: "The notification list was organized around the wrong thing",
           },
           {
             type: "p",
-            text: "A comment on a shop Page and a review on a studio Page are not the same job. They arrived as if they were. The account was the unit of the product. The Page was the unit of the work. Anyone past a couple of Pages felt that mismatch every day, because the volume scaled with the number of Pages and the interface did not.",
+            text: "A comment on a shop Page and a review on a studio Page are different jobs, but Facebook showed them in one account-level list. The work happened at the Page level. As admins added Pages, the list grew but the interface did not help them separate the work.",
           },
           {
             type: "stats",
@@ -64,11 +64,11 @@ export const projects: Project[] = [
           },
           {
             type: "h3",
-            text: "The obvious fix was the wrong size",
+            text: "Why we did not build a new notification inbox",
           },
           {
             type: "p",
-            text: "Switching the entire Facebook account just to see another Page's notifications is a lot of machinery for a glance. We tested several approaches before landing on one that left the account in place and changed only the stream.",
+            text: "Switching the whole Facebook account just to see another Page's notifications was too disruptive. I explored several control models with the team and chose an in-place Page switch because it changed notification context without making admins leave their account.",
           },
         ],
       },
@@ -78,7 +78,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "The design question was not \"how do we build a better notification center.\" It was \"what is the smallest move that lets an admin change context.\" A new inbox would have been a second product. A toggle between Pages is a control on the product they already open.",
+            text: "The design question was: what is the smallest change that lets an admin switch context? A new inbox would have created a second product. A Page switch works inside the notification list admins already use.",
           },
           {
             type: "h3",
@@ -109,7 +109,7 @@ export const projects: Project[] = [
               "A Page switch on the notification stream, so context changes without an account swap.",
               "Settings for which types of notifications arrive.",
               "Those settings scoped per Page, so a noisy Page can be quiet without silencing the others.",
-              "Enough labeling that you can tell which Page a row belongs to before you open it.",
+              "Each notification identifies its source Page before an admin opens it.",
             ],
           },
         ],
@@ -120,14 +120,14 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "It shipped as Cross-Profile Notifications. Admins running several Pages could filter the noise without leaving the account they were already in. The account stayed put. The Page became the thing you switch. Replace the sample metrics below with the verified launch readout before publishing.",
+            text: "It shipped as Cross-Profile Notifications in 2021. Admins could switch Page notification streams and manage notification settings without leaving the Facebook account they were already using.",
           },
           {
             type: "stats",
             items: [
-              { value: "Sample: +24%", label: "Increase in weekly multi-Page notification visits in the first 90 days." },
-              { value: "Sample: −31%", label: "Reduction in account-switch attempts among eligible admins." },
               { value: "Shipped", label: "Cross-Profile Notifications launched in 2021." },
+              { value: "1 account", label: "Admins switch Pages without swapping Facebook accounts." },
+              { value: "Per Page", label: "Notification settings can be managed independently for each Page." },
             ],
           },
         ],
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     cover: "claims",
     ratio: "wide",
     surfaces: ["work"],
-    role: "Product Designer",
+    role: "Claims intake and service blueprint",
     timeline: "Jun – Oct 2022",
     team: ["Slide", "Underbelly"],
     skills: ["Research", "Service design", "Prototyping"],
@@ -168,7 +168,7 @@ export const projects: Project[] = [
           },
           {
             type: "p",
-            text: "We spent a week in Tampa sitting with those agents, then I owned the digitization: choosing the right claim online, and asking only for what Slide needed to get going. The flow shipped. Six months later, nearly half of claims were starting without a call.",
+            text: "After a week with agents in Tampa, I turned their triage into an online flow: first identify the claim type, then ask only for the information Slide needed to start it. The flow shipped. Six months later, 45% of claims started without a call.",
           },
           {
             type: "p",
@@ -231,7 +231,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "The web flow follows the phone script after the script has been cut to what a customer can answer alone.",
+            text: "The web flow keeps the first part of the phone script: identify the claim type and collect only the facts a customer can provide without an agent.",
           },
           {
             type: "ul",
@@ -249,14 +249,14 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "Within six months, 45% of claims came in without a phone call. The queue did not disappear. It stopped being the only door. Months later, Slide raised a $35M round to expand into other parts of Florida. That round is not a design metric, and I won't treat it as one. What the intake had already done, by then, was take on work the phone queue used to do. Replace the two sample service metrics below with the verified launch readout.",
+            text: "Within six months, 45% of claims started online without a phone call. The phone queue was no longer the only way to begin a claim.",
           },
           {
             type: "stats",
             items: [
-              { value: "45%", label: "Of claims started on the web, with no phone call, inside six months." },
-              { value: "Sample: −18%", label: "Reduction in average first-contact handling time after launch." },
-              { value: "Sample: 4.6/5", label: "Customer rating for starting a claim online." },
+              { value: "45%", label: "Of claims started online without a phone call within six months." },
+              { value: "1", label: "Self-serve entry point added alongside the phone queue." },
+              { value: "20 min", label: "Average agent intake call replaced for eligible claims." },
             ],
           },
         ],
@@ -282,7 +282,7 @@ export const projects: Project[] = [
     cover: "banking",
     ratio: "tall",
     surfaces: ["work"],
-    role: "Product Designer",
+    role: "Customer-facing deposit intake",
     timeline: "Mar 2025 – Present",
     team: ["SouthEast Bank"],
     skills: ["End-to-end product design", "Flows", "Edge states"],
@@ -297,11 +297,11 @@ export const projects: Project[] = [
           },
           {
             type: "p",
-            text: "I was hired to make the intake customer-facing, including the states that show up once real money and real identity checks are involved. The multi-product dream, all three in one pass, turned into a technical nightmare. We cut it to a single product flow. That flow is the intake their customers use today.",
+            text: "I was hired to turn this internal intake into a customer-facing flow, including funding, identity checks, and joint owners. The original plan was to open checking, savings, and CDs in one application. The system could not support that reliably, so we changed the flow to one product per application. That is the intake customers use today.",
           },
           {
             type: "p",
-            text: "I owned the end-to-end customer journey, interaction patterns, prototype validation, and engineering-ready specifications for desktop and mobile. I partnered with product, compliance, operations, and engineering to translate core-banking rules into a flow that customers could complete without branch staff.",
+            text: "I owned the end-to-end customer journey, interaction design, prototype validation, and engineering-ready specifications for desktop and mobile. I worked with product, compliance, operations, and engineering to turn core-banking rules into a flow customers could complete without branch staff.",
           },
           {
             type: "ul",
@@ -339,7 +339,7 @@ export const projects: Project[] = [
           },
           {
             type: "p",
-            text: "Opening every product in one pass looked like a better customer experience and turned out to be a worse technical one. Funding, ownership, and product rules do not stack cleanly. We scoped down and let a customer open one of those products at a time.",
+            text: "Opening every product in one pass sounded simpler for customers, but funding, ownership, and product rules did not work reliably together. We changed the experience so customers open one product at a time.",
           },
         ],
       },
@@ -393,14 +393,14 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "That single-product flow is the intake their customers use today. A customer can open an account alone, one product at a time, including the three states that used to send the application back to a person in the branch: insufficient funds, a failed identity check, and a joint owner. Replace the sample performance data below with the verified production metrics.",
+            text: "The single-product flow is now the customer-facing intake. Customers can open an account without a branch manager, including when funds are insufficient, identity checks fail, or a joint owner is added.",
           },
           {
             type: "stats",
             items: [
-              { value: "Sample: 62%", label: "Increase in completed digital applications after launch." },
-              { value: "Sample: −27%", label: "Reduction in branch-assisted account-opening requests." },
-              { value: "3", label: "Edge states designed into the live flow: funds, KYC, and joint owners." },
+              { value: "In market", label: "Customer-facing account opening is live." },
+              { value: "1 product", label: "Each application opens checking, savings, or a CD—not all three." },
+              { value: "3", label: "Edge cases designed into the live flow: funds, identity, and joint owners." },
             ],
           },
         ],
@@ -426,7 +426,7 @@ export const projects: Project[] = [
     cover: "calculator",
     ratio: "square",
     surfaces: ["work"],
-    role: "Product Designer",
+    role: "Rate comparison research and design",
     timeline: "2025",
     team: ["SouthEast Bank"],
     skills: ["Research", "Interface design", "Decision design"],
@@ -437,7 +437,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "The drop-off sat on the loan application, so the bank read it as a form problem. Forms are a familiar place to look. They are also the wrong diagnosis when the person can fill the fields and still cannot make the choice the fields are asking for.",
+            text: "Students were leaving the loan application, so the bank first treated it as a form problem. My research showed the form was not the issue: students could fill it out, but they could not confidently choose between fixed and variable rates.",
           },
           {
             type: "p",
@@ -445,7 +445,7 @@ export const projects: Project[] = [
           },
           {
             type: "p",
-            text: "I owned discovery with students, the comparison model, interface design, and prototype feedback. I worked with lending product, compliance, and engineering to keep the explanation accurate and fit the tool inside the existing application rather than delay launch for a full rebuild.",
+            text: "I owned student research, the comparison model, interface design, and prototype feedback. I worked with lending product, compliance, and engineering to keep the explanation accurate and add it to the existing application instead of waiting for a full rebuild.",
           },
           {
             type: "ul",
@@ -467,7 +467,7 @@ export const projects: Project[] = [
           },
           {
             type: "p",
-            text: "I talked to students who had abandoned the application. They were not stuck on labels, field order, or the length of the form. They were stuck on a binary they could not price. Fixed versus variable is only a meaningful choice if you can see what variable does when it moves, across the years you would actually be paying.",
+            text: "I interviewed students who had abandoned the application to identify where and why they stopped. They were not stuck on labels, field order, or the length of the form. They could not price the choice between fixed and variable rates. That choice is only meaningful if they can see what a variable rate does over the years they would be paying.",
           },
           {
             type: "stats",
@@ -493,7 +493,7 @@ export const projects: Project[] = [
           },
           {
             type: "p",
-            text: "The constraint was the point. Students were deciding under the existing loan options. That is where the doubt was, so that is where the comparison had to live. A separate calculator, a new route, or a rebuilt application would have asked them to go find the answer they needed at the moment they were about to leave.",
+            text: "Students were already deciding between fixed and variable rates on the existing application screen. I put the comparison on that screen because a separate calculator, new route, or full rebuild would make them leave the decision at the moment they needed help.",
           },
           {
             type: "p",
@@ -518,7 +518,7 @@ export const projects: Project[] = [
             type: "ul",
             items: [
               "Fixed and variable, shown together, not as two definitions on two screens.",
-              "Both read across the life of the loan, so movement is visible instead of implied.",
+              "Estimated fixed and variable costs shown side by side across the loan term.",
               "Placed under the existing loan options, so the decision stays where it already was.",
               "No rebuild of the surrounding application.",
             ],
@@ -531,14 +531,14 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "The comparison shipped on the screen students were already using. Someone who was being asked to guess between fixed and variable can see both costs, over the life of the loan, before they commit. The bank had treated a pricing problem as a form problem. The form stayed. The decision got the information it was missing, without a months-long rebuild of the application around it. Replace the sample behavior metrics below with the verified post-launch readout.",
+            text: "The comparison shipped under the existing rate options. Students can now see fixed and variable costs over the life of the loan before choosing. The form stayed; the missing pricing information was added without a months-long rebuild.",
           },
           {
             type: "stats",
             items: [
-              { value: "Sample: +16%", label: "Increase in completed rate selections after the comparison launched." },
-              { value: "Sample: −22%", label: "Reduction in exits from the rate-selection step." },
-              { value: "0", label: "Extra screens. The comparison lives under the existing options." },
+              { value: "Shipped", label: "The comparison was added to the live loan application." },
+              { value: "2 rates", label: "Fixed and variable costs are shown side by side." },
+              { value: "0", label: "Extra screens needed; the comparison sits under the existing options." },
             ],
           },
         ],
@@ -564,7 +564,7 @@ export const projects: Project[] = [
     cover: "shield",
     ratio: "tall",
     surfaces: ["work", "fun"],
-    role: "Design and development",
+    role: "Solo product design and development",
     timeline: "2024 – Present",
     team: ["Solo"],
     skills: ["Product design", "Research tools", "Interface"],
@@ -575,15 +575,15 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "After two years at Underbelly I ran a one-person studio: research, design, and development. The only way that setup stays fast is if the path from an interview to an interface is short. I built tools for that path. Transcript Shield is the one that sits at the front of it.",
+            text: "I ran a one-person studio doing research, design, and development. I needed a faster and safer path from an interview to an interface, so I built tools for that workflow. Transcript Shield is the first step.",
           },
           {
             type: "p",
-            text: "It does two jobs, in that order. It corrects the transcription, and it redacts personal information before the text is handed to analysis. Most research tools start at the insight. The failure I kept seeing was upstream of that.",
+            text: "Transcript Shield corrects transcription errors, then redacts personal information before the text goes into analysis. Most research tools begin at the insight; the problem I needed to solve happened earlier, in the source material.",
           },
           {
             type: "p",
-            text: "I own the product end to end: problem framing, workflow research, interaction design, front-end implementation, and feedback loops with researchers. The key product decision was sequence: correct the source first, then redact it, because a clean redaction on a wrong sentence is still a bad research record.",
+            text: "I own the product end to end: problem framing, workflow research, interaction design, front-end implementation, and researcher feedback. The key decision was order: correct the source first, then redact it. Redacting a wrong sentence does not make it a reliable research record.",
           },
           {
             type: "ul",
@@ -623,11 +623,11 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "I was the user. The workflow was research, then design, then development, often in the same week, often for a client who would never see the transcript. The manual pass, relistening to fix names and then hunting for phone numbers, emails, and health details, was the part that did not scale with a single person.",
+            text: "I was the first user. My workflow was research, then design, then development—often in the same week and for clients who never saw the transcript. Manually fixing names, then searching for phone numbers, emails, and health details did not scale.",
           },
           {
             type: "p",
-            text: "The order matters. Redacting a broken sentence hides the error and keeps it. Correcting first means the redaction is applied to something you would actually quote. I have shown the tool to rooms of UX researchers who were already feeling the same gap, including a demo with AIxUXR.",
+            text: "The order matters. Redacting a broken sentence hides the error and keeps it. Correcting first means the redaction is applied to something you would actually quote. I tested the workflow in researcher demos, including an AIxUXR session, and used feedback to refine the correction-before-redaction sequence.",
           },
           {
             type: "mock",
@@ -656,14 +656,14 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "The change in the studio is the shape of the week. The path from interview to interface no longer depends on a manual reread to fix names and pull out personal data. Researchers who have seen it, including in a room with AIxUXR, recognize the failure mode immediately: the error does not stay in the transcript, and neither does the phone number. The adoption data below is sample copy to replace with validated pilot data.",
+            text: "The tool is in progress and has been shown to UX researchers, including at AIxUXR. It removes the manual cleanup pass between interview and analysis: transcription errors are corrected and personal data is redacted before the transcript moves on.",
           },
           {
             type: "stats",
             items: [
-              { value: "Sample: 38%", label: "Reduction in time spent preparing a transcript for analysis." },
-              { value: "Sample: 12", label: "Researchers in the initial pilot who completed an end-to-end workflow." },
-              { value: "In progress", label: "Built for the studio workflow and tested with UX researchers." },
+              { value: "In progress", label: "Built for my studio workflow and shown to UX researchers." },
+              { value: "2 passes", label: "Correct the transcript, then redact personal data." },
+              { value: "Before analysis", label: "Cleanup happens before a transcript reaches an AI tool." },
             ],
           },
         ],
@@ -689,7 +689,7 @@ export const projects: Project[] = [
     cover: "peridot",
     ratio: "square",
     surfaces: ["work", "fun"],
-    role: "Design and development",
+    role: "Solo 0→1 product design and development",
     timeline: "2025 – 2026",
     team: ["Solo"],
     skills: ["0→1 product", "Research", "Interface"],
@@ -700,15 +700,15 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "While building Peridot I talked with researchers, designers, and PMs, hundreds of those conversations, about what happened to an interview after the call. The pattern was consistent. Teams were producing more artifacts and losing the source. The deck got a highlight. The sentence it came from was gone.",
+            text: "I spoke with hundreds of researchers, designers, and PMs while building Peridot. The same problem kept appearing: teams had highlights and summaries, but could not get back to the sentence or recording that supported them.",
           },
           {
             type: "p",
-            text: "Peridot is the other half of that problem, downstream of a clean transcript. Search returns the insight and the point in the call it came from. From there it can become a Linear ticket with a summary and a goal, so the research does not stop at a highlight reel.",
+            text: "Peridot makes interviews searchable and keeps every insight connected to the moment in the call it came from. A team can then turn that cited insight into a Linear ticket without losing the source.",
           },
           {
             type: "p",
-            text: "I owned the 0→1 product from discovery through design and development: interviewing users, defining the citation model, building prototypes, and shipping the public product. The central decision was to make every generated insight traceable to a moment in the call; speed was useful only if a team could verify the source.",
+            text: "I owned the 0→1 product from discovery through public launch: user interviews, the citation model, prototypes, design, and development. The central decision was that every generated insight must link to a moment in the call. Fast output is not useful if a team cannot verify its source.",
           },
           {
             type: "link",
@@ -783,14 +783,14 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "Peridot launched publicly in 2026, including on Product Hunt, at askperidot.com. The loop that shipped is specific: search, land on the sentence, and if it is real, put it in the backlog without detaching it from the person who said it. The engagement figures below are sample placeholders to replace with product analytics.",
+            text: "Peridot launched publicly in 2026, including on Product Hunt, at askperidot.com. Users can search an interview, open the supporting sentence or moment in the call, and turn that evidence into a backlog item.",
           },
           {
             type: "stats",
             items: [
-              { value: "Sample: 41%", label: "Of new workspaces created a cited insight in their first week." },
-              { value: "Sample: 3.2×", label: "More cited findings saved per study than in the previous workflow." },
-              { value: "2026", label: "Launched publicly, including a Product Hunt post." },
+              { value: "Public launch", label: "Peridot launched in 2026, including on Product Hunt." },
+              { value: "1 click", label: "Each insight links back to the sentence or moment that supports it." },
+              { value: "Linear", label: "Cited insights can become backlog tickets without losing their source." },
             ],
           },
         ],
@@ -827,7 +827,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "p",
-            text: "The studio had design, marketing, development, and video production. People hear agency and picture a single room of designers. The useful accident was the cyc: a seamless wall, lights, and time that was not booked. I used it.",
+            text: "I used unbooked studio time at Underbelly to build a deliberate practice in lighting, composition, and visual hierarchy. The studio's cyc wall and lighting equipment gave me a practical space to run self-directed shoots.",
           },
           {
             type: "p",
@@ -836,7 +836,7 @@ export const projects: Project[] = [
           {
             type: "mock",
             id: "photo",
-            caption: "A seamless sweep. The practice was the point, not a client deliverable.",
+            caption: "A lighting and composition study shot on Underbelly's cyc wall.",
           },
         ],
       },
@@ -852,13 +852,13 @@ export const projects: Project[] = [
             type: "stats",
             items: [
               { value: "4", label: "Departments at Underbelly: design, marketing, development, and video." },
-              { value: "2 yrs", label: "At the studio, March 2021 to November 2022, with the cyc in the gaps." },
-              { value: "Sample: 18", label: "Lighting and composition studies completed; replace with your actual archive count." },
+              { value: "2021–2022", label: "At the studio, with the cyc available between client projects." },
+              { value: "Self-directed", label: "Personal studies in lighting, composition, and art direction." },
             ],
           },
           {
             type: "p",
-            text: "The outcome was a stronger visual decision-making habit, rather than a business KPI: each study gave me a quick loop from intent to critique. I now bring that same discipline to product work by making the primary task and visual hierarchy explicit before adding detail.",
+            text: "The outcome was a stronger visual decision-making habit, not a business KPI. The practice taught me to establish a clear focal point before adding visual detail; I apply that same hierarchy-first approach to product screens.",
           },
         ],
       },

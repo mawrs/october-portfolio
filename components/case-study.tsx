@@ -12,6 +12,8 @@ export function CaseStudy({
   back = true,
   hero,
   heroForeground,
+  titleInHero = true,
+  heroFullBleed = false,
 }: {
   project: Project;
   chrome?: boolean;
@@ -20,8 +22,11 @@ export function CaseStudy({
   back?: boolean;
   hero?: string;
   heroForeground?: string;
+  titleInHero?: boolean;
+  heroFullBleed?: boolean;
 }) {
   const sections = project.sections.map(({ id, label }) => ({ id, label }));
+  const hasOverview = project.sections.some((section) => section.id === "overview");
   const metaParts = project.meta.split(/\s*[·•]\s*/).filter(Boolean);
   const facts = project.facts ?? [
     { label: "Role", values: [project.role] },
@@ -33,25 +38,19 @@ export function CaseStudy({
   return (
     <>
       {chrome && (
-        <div
-          data-case-hero
-          className="relative flex aspect-[16/9] max-h-[70vh] w-full items-center justify-center overflow-hidden bg-background-light"
-        >
-          {hero ? (
-            <img src={hero} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <div data-case-hero className="bg-background-light">
+          {heroFullBleed ? (
+            <HeroMedia project={project} hero={hero} heroForeground={heroForeground} />
           ) : (
-            <div className="flex aspect-[0.865] h-[74%] max-w-[90%] shrink-0 items-center justify-center overflow-hidden rounded-sm border border-stroke-light bg-background-white p-xs">
-              <div className="h-full w-full overflow-hidden">
-                <Cover id={project.cover} />
-              </div>
+            <div className={`mx-auto flex w-full flex-col items-center gap-md px-l py-xl ${wideFigures ? "" : "max-w-[777px]"}`}>
+              {titleInHero && <h1 className="text-center text-heading-lg font-normal text-text-primary">{project.title}</h1>}
+              <HeroMedia project={project} hero={hero} heroForeground={heroForeground} />
+              {metaParts.length > 0 && (
+                <div className="self-center">
+                  <MetaLine parts={metaParts} />
+                </div>
+              )}
             </div>
-          )}
-          {heroForeground && (
-            <img
-              src={heroForeground}
-              alt=""
-              className="absolute bottom-0 left-1/2 z-10 w-[min(1160px,88%)] -translate-x-1/2 translate-y-1/3"
-            />
           )}
         </div>
       )}
@@ -77,43 +76,30 @@ export function CaseStudy({
         <article
           className={`mx-auto w-full px-l lg:col-start-1 lg:row-start-1 ${wideFigures ? "" : "max-w-[777px]"}`}
         >
-          <header className="flex flex-col items-start gap-md py-s">
-            <div className="flex flex-col items-start gap-xs">
-              {metaParts.length > 0 && (
-                <p className="flex items-center gap-xs text-caption text-text-secondary uppercase">
-                  {metaParts.map((part, partIndex) => (
-                    <span key={part} className="flex items-center gap-xs">
-                      {partIndex > 0 && (
-                        <span aria-hidden className="font-mono text-body-sm">
-                          •
-                        </span>
-                      )}
-                      {part}
-                    </span>
-                  ))}
-                </p>
+          {(!chrome || !hasOverview || !titleInHero) && (
+            <header className="flex flex-col items-start gap-md py-s">
+              {(!chrome || !titleInHero) && (
+                <div className="flex flex-col items-start gap-xs">
+                  {metaParts.length > 0 && <MetaLine parts={metaParts} />}
+                  <h1 className={`text-heading-lg font-normal text-text-primary ${wideFigures ? "" : "max-w-[624px]"}`}>
+                    {project.title}
+                  </h1>
+                </div>
               )}
-              <h1 className={`text-heading-lg font-normal text-text-primary ${wideFigures ? "" : "max-w-[624px]"}`}>
-                {project.title}
-              </h1>
-            </div>
-            <div className="flex flex-col gap-xs">
-              <p className="text-body text-text-secondary">{project.deck}</p>
-              {project.lead?.map((paragraph) => (
-                <p key={paragraph} className="text-body text-text-secondary">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </header>
-
-          {facts.length > 0 && (
-            <dl className="grid grid-cols-2 gap-s pt-s sm:grid-cols-4">
-              {facts.map((fact) => (
-                <Meta key={fact.label} label={fact.label} values={fact.values} />
-              ))}
-            </dl>
+              {(!hasOverview || project.lead?.length) && (
+                <div className="flex flex-col gap-xs">
+                  {!hasOverview && <p className="text-body text-text-secondary">{project.deck}</p>}
+                  {project.lead?.map((paragraph) => (
+                    <p key={paragraph} className="text-body text-text-secondary">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </header>
           )}
+
+          {!hasOverview && facts.length > 0 && <Facts facts={facts} />}
 
           {chrome && (
             <div className="pt-md lg:hidden">
@@ -128,16 +114,50 @@ export function CaseStudy({
                   {section.label}
                 </h2>
                 <div className="mt-md flex flex-col gap-xs">
-                  {section.blocks.map((block, blockIndex) => (
+                  {section.blocks
+                    .filter((block) => section.id !== "overview" || block.type !== "ul")
+                    .map((block, blockIndex) => (
                     <BlockView key={blockIndex} block={block} spaced={blockIndex > 0} wide={wideFigures} />
-                  ))}
+                    ))}
                 </div>
+                {section.id === "overview" && facts.length > 0 && <Facts facts={facts} />}
               </section>
             ))}
           </div>
         </article>
       </div>
     </>
+  );
+}
+
+function HeroMedia({
+  project,
+  hero,
+  heroForeground,
+}: {
+  project: Project;
+  hero?: string;
+  heroForeground?: string;
+}) {
+  return (
+    <div className="relative flex aspect-[16/9] max-h-[70vh] w-full items-center justify-center overflow-hidden">
+      {hero ? (
+        <img src={hero} alt="" className="absolute inset-0 h-full w-full object-cover" />
+      ) : (
+        <div className="flex aspect-[0.865] h-full max-w-[90%] shrink-0 items-center justify-center overflow-hidden rounded-sm border border-stroke-light bg-background-white p-xs">
+          <div className="h-full w-full overflow-hidden">
+            <Cover id={project.cover} />
+          </div>
+        </div>
+      )}
+      {heroForeground && (
+        <img
+          src={heroForeground}
+          alt=""
+          className="absolute bottom-0 left-1/2 z-10 w-[min(1160px,88%)] -translate-x-1/2 translate-y-1/3"
+        />
+      )}
+    </div>
   );
 }
 
@@ -161,7 +181,11 @@ function BlockView({ block, spaced, wide }: { block: Block; spaced: boolean; wid
   }
   if (block.type === "stats") {
     return (
-      <div className={`flex flex-col gap-md py-md sm:flex-row sm:items-stretch sm:gap-s ${group ? "mt-s" : ""}`}>
+      <div
+        className={`flex flex-col gap-md rounded-sm border border-stroke-light bg-background-extra-light p-md sm:flex-row sm:items-stretch sm:gap-s ${
+          group ? "mt-md" : ""
+        }`}
+      >
         {block.items.map((item, index) => (
           <div key={item.value + item.label} className="contents">
             {index > 0 && <div aria-hidden className="hidden w-px bg-stroke-light sm:block" />}
@@ -200,6 +224,33 @@ function Figure({ id, caption, wide }: { id: CoverId; caption?: string; wide?: b
         <figcaption className="text-center text-body text-text-secondary leading-[1.45]">{caption}</figcaption>
       )}
     </figure>
+  );
+}
+
+function MetaLine({ parts }: { parts: string[] }) {
+  return (
+    <p className="flex items-center gap-xs text-caption text-text-secondary uppercase">
+      {parts.map((part, partIndex) => (
+        <span key={part} className="flex items-center gap-xs">
+          {partIndex > 0 && (
+            <span aria-hidden className="font-mono text-body-sm">
+              •
+            </span>
+          )}
+          {part}
+        </span>
+      ))}
+    </p>
+  );
+}
+
+function Facts({ facts }: { facts: Array<{ label: string; values: string[] }> }) {
+  return (
+    <dl className="mt-md grid grid-cols-2 gap-s rounded-sm border border-stroke-light bg-background-extra-light p-md sm:grid-cols-4">
+      {facts.map((fact) => (
+        <Meta key={fact.label} label={fact.label} values={fact.values} />
+      ))}
+    </dl>
   );
 }
 

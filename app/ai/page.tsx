@@ -13,10 +13,11 @@ const workflow: Project = {
   title: "How I'm using AI in 2026",
   headline: "How I'm using AI in 2026",
   meta: "",
-  deck: "My workflow has moved off the classic UX sprint. The linear path from research to brief to wireframe to polish is no longer how I work.",
+  deck: "This is a process note, not one product case study. It shows how I use AI tools to take an idea from research through a tested implementation.",
   lead: [
-    "The cost to build has dropped so far that I can take much more creative risk with the process. I jump straight to high fidelity. I generate a podcast instead of writing a brief.",
-    "The classic UX process is becoming a luxury, the route you take when you want the craftsmanship of design. Closer to an artisan jeweler working by hand than a factory turning the piece out.",
+    "I built this workflow to reduce the time between a product question and a testable answer, while keeping research evidence and design-system quality in the loop. I own the workflow from framing the opportunity through research, prototyping, testing, and documenting the decision.",
+    "Previously, validating a direction required a brief, several design rounds, and engineering handoff. Now I can put a realistic prototype in front of users earlier, then invest in polish once the direction is supported by evidence.",
+    "I use the workflow with product and engineering partners to frame the question, review feasibility, and align on the final direction through Figma documentation and preview feedback.",
   ],
   cover: "peridot",
   ratio: "wide",
@@ -33,7 +34,7 @@ const workflow: Project = {
       blocks: [
         {
           type: "p",
-          text: "I use Claude for a lot of my research-related work. For competitor analysis, I have a few Claude Skills to map out the competitive landscape of a new feature or product space we are trying to enter.",
+          text: "I use Claude to speed up research work. For competitor analysis, I use reusable skills to map the market around a new feature or product space.",
         },
         {
           type: "p",
@@ -41,7 +42,7 @@ const workflow: Project = {
         },
         {
           type: "p",
-          text: "For research synthesis, I've actually built my own tool called Peridot that synthesizes user feedback and retrieves clips for me to use as evidence.",
+          text: "For research synthesis, I use Peridot, a tool I built to find user-feedback evidence and retrieve the supporting clips.",
         },
         { type: "mock", id: "notifications", caption: "Analyzing the competitive landscape in Claude" },
         { type: "mock", id: "peridot", caption: "Pulling user insights & creating a highlight reel" },
@@ -53,11 +54,11 @@ const workflow: Project = {
       blocks: [
         {
           type: "p",
-          text: "If I'm testing out a new feature, I will build it directly in Cursor to understand the potential shape it can take within the product.",
+          text: "When I am testing a feature idea, I build a working version in Cursor. A concrete version makes the product tradeoffs easier to see than a description or wireframe alone.",
         },
         {
           type: "p",
-          text: "If the feature or product direction is less defined and needs further exploration, I'll take the Cursor-generated design and paste it into Figma Make to create five additional versions to explore a broader range of directions.",
+          text: "I prototype in code when I need to test behavior or feasibility. When the direction is less defined, I use the first build as a starting point in Figma Make and generate variations to compare a broader range of visual directions.",
         },
         { type: "mock", id: "email", caption: "Generating a new design in Cursor" },
         { type: "mock", id: "photo", caption: "Creating design variations in Figma Make" },
@@ -69,15 +70,15 @@ const workflow: Project = {
       blocks: [
         {
           type: "p",
-          text: "Once I've decided on a direction, I'll spec out the final design using the design system.",
+          text: "Once I choose a direction, I specify the final design with the design system.",
         },
         {
           type: "p",
-          text: "Using Figma's MCP, I will then feed the new design back into Cursor and refactor the Cursor-generated design using proper components that match our styles.",
+          text: "Using Figma's MCP, I bring that design back into Cursor and refactor the prototype into components that match our production styles.",
         },
         {
           type: "p",
-          text: "The final design also gets documented in Figma for the rest of the team to see. I try to include all design iterations and the thinking that went behind choosing the final design in case we ever want to revert to an old design or go another direction.",
+          text: "I document the final design and the alternatives in Figma so the team can see what changed, why I chose the direction, and what we could revisit later.",
         },
         { type: "mock", id: "calculator", caption: "Converting designs into code with the Figma MCP" },
         { type: "mock", id: "claims", caption: "Documenting designs in Figma" },
@@ -89,15 +90,15 @@ const workflow: Project = {
       blocks: [
         {
           type: "p",
-          text: "After pushing the PR to Github, I run Macroscope to review my code and flag any potential issues.",
+          text: "After I open a pull request, I use Macroscope to review the code and flag potential issues.",
         },
         {
           type: "p",
-          text: "Each PR gets a Vercel Preview link I can send to users for testing. As feedback comes in, I iterate on that same branch.",
+          text: "Each pull request has a Vercel Preview I can share with users. I use that feedback to iterate on the same working version.",
         },
         {
           type: "p",
-          text: "I've experimented with cloning my entire repo to have a \"Demo Repo\" but it was a lot of work to maintain the exact same design on both repos.",
+          text: "I tested keeping a separate demo repository, but it created unnecessary maintenance because the design had to stay in sync in two places.",
         },
         { type: "mock", id: "shield", caption: "Debugging with Macroscope" },
         { type: "mock", id: "banking", caption: "Testing out the latest updates in Vercel Preview" },
@@ -114,6 +115,8 @@ export default function AIPage() {
       back={false}
       hero="/ai/hero.png"
       heroForeground="/ai/cursor.avif"
+      titleInHero={false}
+      heroFullBleed
     />
   );
 }
