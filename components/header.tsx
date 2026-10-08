@@ -9,12 +9,9 @@ const links = [
   { href: "/about", label: "About" },
 ];
 
-const aiSlugs = new Set(["peridot", "transcript-shield"]);
-
 function isActive(pathname: string, href: string) {
-  const projectSlug = pathname.startsWith("/projects/") ? pathname.split("/")[2] : "";
-  if (href === "/ai") return pathname === "/ai" || aiSlugs.has(projectSlug);
-  if (href === "/") return pathname === "/" || (projectSlug !== "" && !aiSlugs.has(projectSlug));
+  if (pathname.startsWith("/projects/")) return false;
+  if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
