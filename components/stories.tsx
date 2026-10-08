@@ -119,8 +119,8 @@ export function Stories({ groups, children }: { groups: StoryGroup[]; children: 
   }, [story, frame, reduced]);
 
   return (
-    <div className="mx-auto grid w-full max-w-[1024px] items-start gap-xl lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-x-xxl">
-      <div className="mx-auto flex w-full max-w-[320px] flex-col items-center gap-s">
+    <div className="mx-auto grid w-full max-w-[1088px] items-start gap-xl lg:grid-cols-[384px_minmax(0,1fr)] lg:gap-x-xxl">
+      <div className="mx-auto flex w-full max-w-[384px] flex-col items-center gap-s">
         <div className="flex w-full justify-center gap-l" role="group" aria-label="Stories">
           {groups.map((group, index) => {
             const active = index === story;
